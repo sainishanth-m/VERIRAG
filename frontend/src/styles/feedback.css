@@ -1,0 +1,332 @@
+/* Feedback Modal Styling - Sleek ChatGPT Dark Aesthetic */
+
+/* Backdrop & Wrapper */
+.feedback-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 1.5rem;
+  animation: feedbackOverlayFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes feedbackOverlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.feedback-modal-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: feedbackCardPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes feedbackCardPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Close Button */
+.feedback-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #262626;
+  color: #a3a3a3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  z-index: 20;
+}
+
+.feedback-modal-close:hover {
+  background: #333333;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Feedback Card */
+.feedback-widget-card {
+  width: 100%;
+  max-width: 440px;
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 24px;
+  color: #ececec;
+  font-family: inherit;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Header Row */
+.feedback-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-right: 28px; /* space for close button */
+}
+
+.feedback-widget-title {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Emoji Group */
+.feedback-emoji-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.feedback-emoji-btn {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #737373;
+  padding: 0;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feedback-emoji-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.feedback-emoji-btn:active {
+  transform: scale(0.92);
+}
+
+.feedback-emoji-btn.active {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
+}
+
+.feedback-emoji-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Section Header (FEEDBACK / Preview) */
+.feedback-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.feedback-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #a3a3a3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.feedback-preview-btn {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #ececec;
+  background: #262626;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.feedback-preview-btn:hover {
+  background: #333333;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Textarea & Preview Area */
+.feedback-textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.feedback-textarea {
+  width: 100%;
+  height: 140px;
+  background: #212121;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #ececec;
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.feedback-textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.feedback-textarea::placeholder {
+  color: #737373;
+  font-size: 13.5px;
+}
+
+.feedback-preview-content {
+  width: 100%;
+  height: 140px;
+  background: #212121;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #ececec;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.feedback-preview-content p {
+  margin: 0;
+}
+
+.feedback-watermark {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  pointer-events: none;
+  font-size: 10px;
+  font-weight: 600;
+  color: #52525b;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  user-select: none;
+}
+
+/* Horizontal Divider */
+.feedback-divider-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 16px 0 14px 0;
+  border: none;
+}
+
+/* Footer Row */
+.feedback-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feedback-footer-note {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #737373;
+  user-select: none;
+}
+
+.feedback-send-btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.feedback-send-btn:disabled {
+  background: #262626;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #52525b;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.feedback-send-btn:not(:disabled) {
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+
+.feedback-send-btn:not(:disabled):hover {
+  background: #e5e5e5;
+  transform: translateY(-1px);
+}
+
+.feedback-send-btn:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.feedback-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-top-color: #000000;
+  border-radius: 50%;
+  animation: feedbackSpin 0.7s linear infinite;
+}
+
+@keyframes feedbackSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}

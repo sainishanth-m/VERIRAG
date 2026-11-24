@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&family=Archivo:wght@600;700;800;900&display=swap');
+
+@import './styles/app.css';
+@import './styles/home.css';
+@import './styles/login.css';
+@import './styles/data.css';
+@import './styles/chat.css';
+@import './styles/settings-modal.css';
+@import './styles/feedback.css';
+@import './styles/faq.css';
+@import './styles/account.css';
+@import './styles/legal.css';
+@import './styles/docs.css';
+@import './styles/headings.css';
