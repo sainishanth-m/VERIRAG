@@ -1,40 +1,59 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd frontend && npm ci && npm run build",
-  "outputDirectory": "frontend/dist",
-  "functions": {
-    "api/index.py": {
-      "maxDuration": 60
-    }
-  },
-  "headers": [
-    {
-      "source": "/chat/(.*)",
+  "services": {
+    "frontend": {
+      "root": "frontend",
+      "framework": "vite",
       "headers": [
         {
-          "key": "X-Robots-Tag",
-          "value": "noindex"
+          "source": "/chat/(.*)",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex"
+            }
+          ]
+        },
+        {
+          "source": "/chat",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "/(.*)",
+          "destination": "/index.html"
         }
       ]
     },
-    {
-      "source": "/chat",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex"
+    "app": {
+      "root": ".",
+      "framework": "fastapi",
+      "entrypoint": "api/index.py",
+      "functions": {
+        "api/index.py": {
+          "maxDuration": 60
         }
-      ]
+      }
     }
-  ],
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index.py"
+      "destination": {
+        "service": "app"
+      }
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": {
+        "service": "frontend"
+      }
     }
   ]
 }
